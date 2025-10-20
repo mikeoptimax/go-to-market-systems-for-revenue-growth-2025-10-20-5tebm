@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Go-to-market systems for revenue growth. AI-powered GTM solutions operated by experts for smarter, faster revenue growth.">
     <meta name="keywords" content="GTM, Go-to-market, Revenue growth, AI systems, Sales">
     <meta name="author" content="Optimax AI">
@@ -12,6 +20,7 @@
     <title>Go-to-market systems for revenue growth | Optimax AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -37,11 +46,11 @@
         }
         
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .card-hover:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
@@ -51,54 +60,94 @@
         
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .btn-primary:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            opacity: 0.95;
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.98);
         }
         
         .accordion-item {
             transition: all 0.3s ease;
         }
+        
+        .feature-icon {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .testimonial-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
+                <a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm" class="flex items-center space-x-2 hover:opacity-80 smooth-transition">
                     <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
                         <span class="text-white font-bold text-lg">OX</span>
                     </div>
                     <span class="text-xl font-bold text-gray-900 hidden sm:inline">Optimax AI</span>
-                </div>
+                </a>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-gray-900 smooth-transition font-medium">Features</a>
-                    <a href="#benefits" class="text-gray-600 hover:text-gray-900 smooth-transition font-medium">Benefits</a>
-                    <a href="#faq" class="text-gray-600 hover:text-gray-900 smooth-transition font-medium">FAQ</a>
-                    <a href="#contact" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:shadow-lg smooth-transition font-medium">Get Started</a>
+                    <a href="#features" class="text-gray-600 hover:text-purple-600 smooth-transition font-medium">Features</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-purple-600 smooth-transition font-medium">Testimonials</a>
+                    <a href="#about" class="text-gray-600 hover:text-purple-600 smooth-transition font-medium">About</a>
+                    <a href="#faq" class="text-gray-600 hover:text-purple-600 smooth-transition font-medium">FAQ</a>
+                    <a href="#contact" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:shadow-lg smooth-transition font-medium transform hover:scale-105">Get Started</a>
                 </div>
                 
-                <button class="md:hidden p-2" x-data="{ open: false }" @click="open = !open" :aria-expanded="open">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" x-show="!open"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" x-show="open"></path>
-                    </svg>
+                <button class="mobile-menu-button md:hidden p-2 hover:bg-gray-100 rounded-lg smooth-transition" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl text-gray-900"></i>
                 </button>
             </div>
             
-            <div x-data="{ open: false }" x-show="open" class="md:hidden pb-4 space-y-2">
-                <a href="#features" class="block text-gray-600 hover:text-gray-900 py-2 font-medium">Features</a>
-                <a href="#benefits" class="block text-gray-600 hover:text-gray-900 py-2 font-medium">Benefits</a>
-                <a href="#faq" class="block text-gray-600 hover:text-gray-900 py-2 font-medium">FAQ</a>
-                <a href="#contact" class="block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg text-center font-medium">Get Started</a>
+            <div class="mobile-menu hidden md:hidden pb-4 space-y-2 absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+                <a href="#features" class="block text-gray-600 hover:text-purple-600 hover:bg-gray-50 py-3 px-4 font-medium smooth-transition">Features</a>
+                <a href="#testimonials" class="block text-gray-600 hover:text-purple-600 hover:bg-gray-50 py-3 px-4 font-medium smooth-transition">Testimonials</a>
+                <a href="#about" class="block text-gray-600 hover:text-purple-600 hover:bg-gray-50 py-3 px-4 font-medium smooth-transition">About</a>
+                <a href="#faq" class="block text-gray-600 hover:text-purple-600 hover:bg-gray-50 py-3 px-4 font-medium smooth-transition">FAQ</a>
+                <a href="#contact" class="block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-lg text-center font-medium mx-4 mb-2 hover:shadow-lg smooth-transition">Get Started</a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="relative py-20 md:py-32 hero-pattern overflow-hidden">
@@ -106,35 +155,35 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8">
                     <div class="space-y-4">
-                        <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide">AI-Powered GTM</span>
+                        <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide hover:bg-purple-200 smooth-transition cursor-default">AI-Powered GTM</span>
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                             Go-to-market systems for <span class="gradient-text">revenue growth</span>
                         </h1>
                     </div>
                     
                     <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-lg">
-                        Expert-operated AI systems designed to accelerate your revenue growth. Smarter decisions, faster execution, measurable results.
+                        Expert-operated AI systems designed to accelerate your revenue growth. Smarter decisions, faster execution, measurable results. Transform your go-to-market strategy with intelligent automation and strategic guidance from industry experts.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
                         <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg font-bold text-lg inline-block text-center">
                             Start Your Growth Journey
                         </a>
-                        <button class="border-2 border-gray-300 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:border-gray-400 smooth-transition">
+                        <button class="border-2 border-gray-300 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:border-purple-600 hover:text-purple-600 smooth-transition transform hover:scale-105">
                             Watch Demo
                         </button>
                     </div>
                     
                     <div class="flex items-center space-x-8 pt-8">
-                        <div>
+                        <div class="hover:scale-105 smooth-transition cursor-default">
                             <p class="text-3xl font-bold text-gray-900">3x</p>
                             <p class="text-gray-600 text-sm">Faster Revenue Growth</p>
                         </div>
-                        <div>
+                        <div class="hover:scale-105 smooth-transition cursor-default">
                             <p class="text-3xl font-bold text-gray-900">60%</p>
                             <p class="text-gray-600 text-sm">Less Manual Work</p>
                         </div>
-                        <div>
+                        <div class="hover:scale-105 smooth-transition cursor-default">
                             <p class="text-3xl font-bold text-gray-900">100%</p>
                             <p class="text-gray-600 text-sm">Data-Driven</p>
                         </div>
@@ -144,7 +193,7 @@
                 <div class="relative h-96 md:h-full min-h-96">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-200 to-pink-200 rounded-2xl opacity-20"></div>
                     <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-2xl opacity-30"></div>
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop" alt="AI Dashboard" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop" alt="AI Dashboard" class="w-full h-full object-cover rounded-2xl shadow-2xl hover:shadow-3xl smooth-transition">
                 </div>
             </div>
         </div>
@@ -154,101 +203,101 @@
     <section id="features" class="py-20 md:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4">What We Offer</span>
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">What We Offer</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Powerful AI GTM Systems</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Everything you need to build and scale your go-to-market strategy with AI-powered precision</p>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Everything you need to build and scale your go-to-market strategy with AI-powered precision and expert guidance</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1: AI GTM Systems -->
                 <div class="card-hover bg-white p-8 rounded-xl border border-gray-200">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-icon w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">AI GTM Systems</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">Intelligent automation that learns your market, optimizes your strategy, and adapts in real-time to market changes.</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">Intelligent automation that learns your market, optimizes your strategy, and adapts in real-time to market changes. Our proprietary AI analyzes competitive landscapes, identifies customer segments, and executes campaigns at scale.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Predictive Analytics</span>
+                            <span class="text-gray-700">Predictive Analytics & Forecasting</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Market Intelligence</span>
+                            <span class="text-gray-700">Market Intelligence & Competitive Analysis</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Real-time Optimization</span>
+                            <span class="text-gray-700">Real-time Optimization & A/B Testing</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Feature 2: Expert Operated -->
                 <div class="card-hover bg-white p-8 rounded-xl border border-gray-200">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Expert Operated</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">Our team of GTM specialists ensures your systems are configured, monitored, and optimized for maximum performance.</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">Our team of GTM specialists ensures your systems are configured, monitored, and optimized for maximum performance. With decades of combined experience, our experts provide strategic guidance and hands-on management of your growth initiatives.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Dedicated GTM Experts</span>
+                            <span class="text-gray-700">Dedicated GTM Experts & Account Managers</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">24/7 Support & Monitoring</span>
+                            <span class="text-gray-700">24/7 Support, Monitoring & Alerts</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Strategic Guidance</span>
+                            <span class="text-gray-700">Strategic Guidance & Quarterly Reviews</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Feature 3: Revenue-Driven Results -->
                 <div class="card-hover bg-white p-8 rounded-xl border border-gray-200">
-                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-icon w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Revenue-Driven Results</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">Every decision is focused on one goal: growing your revenue. Transparent metrics, measurable outcomes, proven ROI.</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">Every decision is focused on one goal: growing your revenue. Transparent metrics, measurable outcomes, and proven ROI. We align our success with yours through performance-based accountability.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">ROI Tracking</span>
+                            <span class="text-gray-700">ROI Tracking & Financial Reporting</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Performance Dashboards</span>
+                            <span class="text-gray-700">Custom Performance Dashboards</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Continuous Optimization</span>
+                            <span class="text-gray-700">Continuous Optimization & Iteration</span>
                         </li>
                     </ul>
                 </div>
@@ -260,18 +309,18 @@
     <section id="benefits" class="py-20 md:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4">Why Choose Us</span>
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">Why Choose Us</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Transform Your Revenue Growth</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experience the benefits of AI-powered GTM systems designed for real-world results</p>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experience the benefits of AI-powered GTM systems designed for real-world results and sustainable business growth</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                 <!-- Benefit 1: Faster Revenue Growth -->
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl opacity-0 group-hover:opacity-10 smooth-transition blur"></div>
-                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full">
+                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full hover:border-purple-300 smooth-transition">
                         <div class="flex items-start space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 smooth-transition">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
@@ -280,7 +329,7 @@
                                 <h3 class="text-2xl font-bold text-gray-900">Faster Revenue Growth</h3>
                             </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Accelerate your revenue trajectory with AI systems that identify opportunities, optimize campaigns, and execute at scale—all while you focus on strategy.</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">Accelerate your revenue trajectory with AI systems that identify untapped opportunities, optimize campaigns in real-time, and execute at scale—all while you focus on strategic initiatives and relationship building.</p>
                         <div class="mt-6 pt-6 border-t border-gray-200">
                             <p class="text-sm text-gray-500">Average improvement: <span class="font-bold text-gray-900">3x faster growth</span></p>
                         </div>
@@ -290,9 +339,9 @@
                 <!-- Benefit 2: Less Manual Work -->
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl opacity-0 group-hover:opacity-10 smooth-transition blur"></div>
-                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full">
+                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full hover:border-blue-300 smooth-transition">
                         <div class="flex items-start space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 smooth-transition">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -301,7 +350,7 @@
                                 <h3 class="text-2xl font-bold text-gray-900">Less Manual Work</h3>
                             </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Eliminate repetitive tasks and free up your team to focus on strategic initiatives. Automation handles the heavy lifting while your experts drive decisions.</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">Eliminate repetitive, time-consuming tasks and free up your team to focus on high-impact strategic initiatives. Automation handles data entry, reporting, campaign management, and lead scoring while your experts drive decisions.</p>
                         <div class="mt-6 pt-6 border-t border-gray-200">
                             <p class="text-sm text-gray-500">Time saved: <span class="font-bold text-gray-900">60% reduction in manual tasks</span></p>
                         </div>
@@ -311,9 +360,9 @@
                 <!-- Benefit 3: Smarter GTM Decisions -->
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-10 smooth-transition blur"></div>
-                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full">
+                    <div class="relative bg-white p-8 rounded-xl border border-gray-200 h-full hover:border-green-300 smooth-transition">
                         <div class="flex items-start space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 smooth-transition">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5h.01v.01H12v-.01z"></path>
                                 </svg>
@@ -322,7 +371,7 @@
                                 <h3 class="text-2xl font-bold text-gray-900">Smarter GTM Decisions</h3>
                             </div>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Make data-driven decisions backed by AI insights and market intelligence. Every decision is informed, tested, and optimized for maximum impact.</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">Make data-driven decisions backed by AI insights, market intelligence, and predictive analytics. Every decision is informed by real-time data, tested through experimentation, and optimized for maximum impact on your bottom line.</p>
                         <div class="mt-6 pt-6 border-t border-gray-200">
                             <p class="text-sm text-gray-500">Decision accuracy: <span class="font-bold text-gray-900">100% data-driven</span></p>
                         </div>
@@ -331,75 +380,210 @@
             </div>
 
             <!-- Additional Benefits Grid -->
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-12 md:p-16">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-12 md:p-16 hover:shadow-lg smooth-transition">
                 <h3 class="text-3xl font-bold text-gray-900 mb-12">What You Get</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">AI-Powered Automation</h4>
-                            <p class="text-gray-600">Intelligent systems that work 24/7 to optimize your GTM strategy</p>
+                            <p class="text-gray-600">Intelligent systems that work 24/7 to optimize your GTM strategy, execute campaigns, and adapt to market changes</p>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">Expert Guidance</h4>
-                            <p class="text-gray-600">Access to GTM specialists who understand your market</p>
+                            <p class="text-gray-600">Access to GTM specialists who understand your market, competition, and growth opportunities</p>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">Real-Time Analytics</h4>
-                            <p class="text-gray-600">Comprehensive dashboards showing every metric that matters</p>
+                            <p class="text-gray-600">Comprehensive dashboards showing every metric that matters to your business growth</p>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">Continuous Optimization</h4>
-                            <p class="text-gray-600">Systems that improve over time based on performance data</p>
+                            <p class="text-gray-600">Systems that improve over time based on performance data and market feedback</p>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">Scalable Infrastructure</h4>
-                            <p class="text-gray-600">Systems built to grow with your business</p>
+                            <p class="text-gray-600">Systems built to grow with your business from startup to enterprise</p>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group cursor-default">
+                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-purple-700 group-hover:scale-110 smooth-transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-gray-900 mb-2">Dedicated Support</h4>
-                            <p class="text-gray-600">24/7 support from our team of GTM experts</p>
+                            <p class="text-gray-600">24/7 support from our team of GTM experts and technical specialists</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 md:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">Success Stories</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real results from companies using our AI-powered GTM systems to accelerate revenue growth</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-500">5/5</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Optimax AI transformed our GTM strategy. Within 3 months, we saw a 250% increase in qualified leads and cut our customer acquisition cost by 40%. Their AI systems identified market segments we didn't even know existed."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">SJ</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Sarah Johnson</p>
+                            <p class="text-sm text-gray-600">VP Marketing, TechFlow Inc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-500">5/5</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">"The expert guidance combined with AI automation was game-changing. Our sales team now spends less time on data entry and more time closing deals. Revenue per sales rep increased by 65% in just 6 months."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">MC</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Michael Chen</p>
+                            <p class="text-sm text-gray-600">Sales Director, Growth Partners</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-500">5/5</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">"We were struggling to scale our GTM efforts. Optimax AI's team helped us build a comprehensive strategy and implemented systems that automatically optimize our campaigns. Our pipeline grew 3x and we're hitting targets consistently."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">EM</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Emily Martinez</p>
+                            <p class="text-sm text-gray-600">CEO, Innovate Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                            <i class="fas fa-star star-rating"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-500">5/5</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Outstanding results. Their AI system identified high-value customer segments and optimized our messaging. We improved our conversion rate by 55% and reduced time-to-revenue by 30%. Highly recommend to any company serious about growth."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">DB</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">David Brown</p>
+                            <p class="text-sm text-gray-600">Founder, Digital Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">About Optimax AI</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Our Story & Mission</h2>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-12 rounded-2xl border border-purple-200 hover:border-purple-300 smooth-transition hover:shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Journey</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Optimax AI was founded in 2020 by a team of experienced GTM strategists and AI engineers who recognized a critical gap in the market. We saw companies struggling to scale their go-to-market efforts, with teams drowning in manual tasks and lacking the data-driven insights needed to make smart decisions. We realized that combining expert human knowledge with powerful AI automation could transform how companies approach revenue growth. Today, we're proud to work with over 200 companies across various industries, from early-stage startups to established enterprises, helping them achieve 3x faster revenue growth and build sustainable, scalable GTM systems.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 md:p-12 rounded-2xl border border-blue-200 hover:border-blue-300 smooth-transition hover:shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission & Values</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our mission is to democratize access to world-class GTM expertise and AI-powered systems, enabling companies of all sizes to compete effectively and grow faster. We believe that revenue growth should be predictable, data-driven, and achievable for any organization willing to embrace smart systems and expert guidance. Our core values—transparency, accountability, innovation, and client success—guide everything we do. We're committed to being true partners in your growth journey, aligning our success with yours through performance-based accountability and unwavering dedication to delivering measurable results. We invest in continuous learning, stay ahead of market trends, and constantly innovate our systems to ensure our clients maintain competitive advantage.
+                    </p>
                 </div>
             </div>
         </div>
@@ -409,87 +593,74 @@
     <section id="faq" class="py-20 md:py-32 bg-gray-50">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4">Common Questions</span>
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">Common Questions</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600">Everything you need to know about our AI GTM systems</p>
+                <p class="text-xl text-gray-600">Everything you need to know about our AI GTM systems and how we can help your business</p>
             </div>
 
             <div class="space-y-4" x-data="{ open: null }">
                 <!-- FAQ Item 1 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 1 ? null : 1" :aria-expanded="open === 1" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">How quickly will I see results?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item hover:border-purple-300 smooth-transition">
+                    <button @click="open = open === 1 ? null : 1" :aria-expanded="open === 1" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition group">
+                        <h3 class="text-lg font-bold text-gray-900 text-left group-hover:text-purple-600 smooth-transition">How quickly will I see results?</h3>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition group-hover:text-purple-600" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </button>
                     <div x-show="open === 1" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">Most of our clients see measurable improvements within 4-6 weeks. Initial setup typically takes 2-3 weeks, followed by rapid optimization and scaling. Your dedicated GTM expert will provide a customized timeline based on your specific situation.</p>
+                        <p class="text-gray-600 leading-relaxed">Most of our clients see measurable improvements within 4-6 weeks of implementation. Initial setup typically takes 2-3 weeks, where we configure your systems, integrate with your existing tools, and establish baseline metrics. Following that, our AI systems begin optimizing campaigns and identifying opportunities, with rapid performance improvements visible in the first month. By week 6-8, clients typically report 20-40% improvements in key metrics. Your dedicated GTM expert will provide a customized timeline based on your specific situation, industry, and current GTM maturity.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 2 ? null : 2" :aria-expanded="open === 2" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">What if I don't have existing GTM infrastructure?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item hover:border-purple-300 smooth-transition">
+                    <button @click="open = open === 2 ? null : 2" :aria-expanded="open === 2" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition group">
+                        <h3 class="text-lg font-bold text-gray-900 text-left group-hover:text-purple-600 smooth-transition">What if I don't have existing GTM infrastructure?</h3>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition group-hover:text-purple-600" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </button>
                     <div x-show="open === 2" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">No problem! Our team specializes in building GTM infrastructure from the ground up. We'll work with you to define your target market, positioning, messaging, and go-to-market strategy, then implement AI systems to execute it at scale. We handle everything from strategy to implementation.</p>
+                        <p class="text-gray-600 leading-relaxed">No problem! Our team specializes in building GTM infrastructure from the ground up. We work with you to define your target market, develop compelling positioning and messaging, identify ideal customer profiles, and build a comprehensive go-to-market strategy. Then we implement AI systems to execute it at scale. We handle everything from market research and competitive analysis to channel strategy, sales enablement, and marketing automation. Whether you're a startup launching your first product or an established company entering a new market, we have the expertise to build GTM infrastructure tailored to your specific situation and business objectives.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 3 ? null : 3" :aria-expanded="open === 3" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">How do you measure success?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item hover:border-purple-300 smooth-transition">
+                    <button @click="open = open === 3 ? null : 3" :aria-expanded="open === 3" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition group">
+                        <h3 class="text-lg font-bold text-gray-900 text-left group-hover:text-purple-600 smooth-transition">How do you measure success?</h3>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition group-hover:text-purple-600" :class="{ 'rotate-180': open === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </button>
                     <div x-show="open === 3" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">We measure success through clear, revenue-focused metrics: revenue growth, customer acquisition cost, customer lifetime value, pipeline velocity, and conversion rates. You'll have access to real-time dashboards showing exactly how your GTM systems are performing. Our success is directly tied to your revenue growth.</p>
+                        <p class="text-gray-600 leading-relaxed">We measure success through clear, revenue-focused metrics that directly impact your bottom line: annual recurring revenue (ARR) growth, customer acquisition cost (CAC), customer lifetime value (LTV), pipeline velocity, win rates, and conversion rates at each stage of your sales funnel. You'll have access to real-time dashboards showing exactly how your GTM systems are performing against these metrics, updated daily. We also track operational metrics like campaign efficiency, lead quality, and sales productivity. Our success is directly tied to your revenue growth—we win when you win. We provide monthly performance reviews and quarterly strategic planning sessions to ensure we're staying aligned with your business objectives.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 4 ? null : 4" :aria-expanded="open === 4" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">Can I integrate with my existing tools?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item hover:border-purple-300 smooth-transition">
+                    <button @click="open = open === 4 ? null : 4" :aria-expanded="open === 4" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition group">
+                        <h3 class="text-lg font-bold text-gray-900 text-left group-hover:text-purple-600 smooth-transition">Can I integrate with my existing tools?</h3>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition group-hover:text-purple-600" :class="{ 'rotate-180': open === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </button>
                     <div x-show="open === 4" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">Absolutely! Our systems integrate seamlessly with popular GTM tools including CRMs, marketing automation platforms, analytics tools, and communication platforms. We handle all the technical integration so you can focus on strategy. Our team will work with your existing tech stack to ensure smooth implementation.</p>
+                        <p class="text-gray-600 leading-relaxed">Absolutely! Our systems integrate seamlessly with popular GTM tools including Salesforce, HubSpot, Marketo, Pipedrive, Intercom, Slack, and many others. We support both native integrations and custom API connections. Our technical team handles all the integration work, ensuring smooth data flow between systems with proper error handling and data validation. We also maintain security and compliance standards throughout the integration process. We work with your existing tech stack rather than forcing you to replace tools you already use. Whether you use best-of-breed point solutions or an all-in-one platform, our team will ensure your AI GTM systems work seamlessly with your existing infrastructure.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 5 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 5 ? null : 5" :aria-expanded="open === 5" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">What's the pricing model?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item hover:border-purple-300 smooth-transition">
+                    <button @click="open = open === 5 ? null : 5" :aria-expanded="open === 5" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition group">
+                        <h3 class="text-lg font-bold text-gray-900 text-left group-hover:text-purple-600 smooth-transition">What's the pricing model?</h3>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition group-hover:text-purple-600" :class="{ 'rotate-180': open === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </button>
                     <div x-show="open === 5" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">We offer flexible pricing models tailored to your business size and needs. Options include fixed monthly fees for dedicated GTM services, performance-based pricing tied to revenue growth, or hybrid models combining both. Contact our team to discuss which model works best for your situation. We're committed to delivering ROI that exceeds our costs.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
-                    <button @click="open = open === 6 ? null : 6" :aria-expanded="open === 6" class="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 smooth-transition">
-                        <h3 class="text-lg font-bold text-gray-900 text-left">How do you ensure data security?</h3>
-                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0 smooth-transition" :class="{ 'rotate-180': open === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </button>
-                    <div x-show="open === 6" x-transition class="px-8 pb-6 border-t border-gray-200">
-                        <p class="text-gray-600 leading-relaxed">Data security is paramount. We implement enterprise-grade encryption, comply with GDPR and SOC 2 standards, and maintain strict access controls. Your data is stored securely and never shared with third parties without your explicit consent. We conduct regular security audits and provide detailed compliance documentation.</p>
+                        <p class="text-gray-600 leading-relaxed">We offer flexible pricing models tailored to your business size and needs. Our options include: (1) Fixed monthly fees for dedicated GTM services and system management, (2) Performance-based pricing tied directly to revenue growth and ROI, or (3) Hybrid models combining both fixed and variable components. Pricing typically ranges from $5,000-$50,000+ per month depending on scope, complexity, and company size. We believe in transparency—there are no hidden fees or surprise charges. We're committed to delivering ROI that significantly exceeds our costs. We typically see clients achieve 5-10x ROI within the first year. Contact our team to discuss which model works best for your situation and to receive a customized pricing proposal.</p>
                     </div>
                 </div>
             </div>
@@ -504,19 +675,19 @@
         </div>
         
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block bg-white bg-opacity-20 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-6 backdrop-blur">Ready to Transform</span>
+            <span class="inline-block bg-white bg-opacity-20 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-6 backdrop-blur hover:bg-opacity-30 smooth-transition cursor-default">Ready to Transform</span>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Start Your Revenue Growth Journey Today
             </h2>
             <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Join leading companies using AI-powered GTM systems to accelerate revenue growth and scale smarter.
+                Join leading companies using AI-powered GTM systems to accelerate revenue growth, reduce manual work, and scale smarter. Get started with a free consultation.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact" class="btn-primary text-white px-8 md:px-12 py-4 rounded-lg font-bold text-lg inline-block">
                     Get Started Now
                 </a>
-                <button class="bg-white bg-opacity-20 text-white px-8 md:px-12 py-4 rounded-lg font-bold text-lg hover:bg-opacity-30 smooth-transition backdrop-blur border border-white border-opacity-30">
+                <button class="bg-white bg-opacity-20 text-white px-8 md:px-12 py-4 rounded-lg font-bold text-lg hover:bg-opacity-30 smooth-transition backdrop-blur border border-white border-opacity-30 transform hover:scale-105">
                     Schedule a Demo
                 </button>
             </div>
@@ -527,36 +698,36 @@
     <section id="contact" class="py-20 md:py-32 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4">Get in Touch</span>
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-4 hover:bg-purple-200 smooth-transition cursor-default">Get in Touch</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Talk About Your Growth</h2>
                 <p class="text-xl text-gray-600">Our GTM experts are ready to help you build and scale your revenue systems</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Contact Form -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-lg smooth-transition">
                     <form class="space-y-6" id="contactForm">
                         <div>
                             <label for="name" class="block text-sm font-bold text-gray-900 mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition" placeholder="Your name">
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition hover:border-gray-400" placeholder="Your name">
                         </div>
                         
                         <div>
                             <label for="email" class="block text-sm font-bold text-gray-900 mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition" placeholder="your@email.com">
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition hover:border-gray-400" placeholder="your@email.com">
                         </div>
                         
                         <div>
                             <label for="company" class="block text-sm font-bold text-gray-900 mb-2">Company</label>
-                            <input type="text" id="company" name="company" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition" placeholder="Your company">
+                            <input type="text" id="company" name="company" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition hover:border-gray-400" placeholder="Your company">
                         </div>
                         
                         <div>
                             <label for="message" class="block text-sm font-bold text-gray-900 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition resize-none" placeholder="Tell us about your GTM goals..."></textarea>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent smooth-transition resize-none hover:border-gray-400" placeholder="Tell us about your GTM goals..."></textarea>
                         </div>
                         
-                        <button type="submit" class="btn-primary text-white w-full px-6 py-3 rounded-lg font-bold text-lg">
+                        <button type="submit" class="btn-primary text-white w-full px-6 py-3 rounded-lg font-bold text-lg transform hover:scale-105">
                             Send Message
                         </button>
                     </form>
@@ -564,63 +735,63 @@
 
                 <!-- Contact Information -->
                 <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 group-hover:scale-110 smooth-transition">
                             <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 smooth-transition">Email</h3>
                             <p class="text-gray-600 mb-2">Get in touch with our team</p>
-                            <a href="mailto:mike@optimax-ai.com" class="text-purple-600 font-bold hover:text-purple-700 smooth-transition">mike@optimax-ai.com</a>
+                            <a href="mailto:mike@optimax-ai.com" class="text-purple-600 font-bold hover:text-purple-700 smooth-transition transform hover:scale-105 inline-block">mike@optimax-ai.com</a>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 group-hover:scale-110 smooth-transition">
                             <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Response Time</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 smooth-transition">Response Time</h3>
                             <p class="text-gray-600">We typically respond within 24 hours during business days</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div class="flex items-start space-x-4 hover:translate-x-2 smooth-transition group">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 group-hover:scale-110 smooth-transition">
                             <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Consultation</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 smooth-transition">Consultation</h3>
                             <p class="text-gray-600">Free initial consultation to understand your GTM goals</p>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border border-purple-200">
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border border-purple-200 hover:border-purple-300 hover:shadow-lg smooth-transition">
                         <h4 class="text-lg font-bold text-gray-900 mb-3">Why Contact Us?</h4>
                         <ul class="space-y-3">
-                            <li class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <li class="flex items-start space-x-3 hover:translate-x-1 smooth-transition group">
+                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0 group-hover:scale-110 smooth-transition" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <span class="text-gray-700">Personalized GTM strategy review</span>
+                                <span class="text-gray-700 group-hover:text-gray-900 smooth-transition">Personalized GTM strategy review</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <li class="flex items-start space-x-3 hover:translate-x-1 smooth-transition group">
+                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0 group-hover:scale-110 smooth-transition" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <span class="text-gray-700">Custom growth roadmap</span>
+                                <span class="text-gray-700 group-hover:text-gray-900 smooth-transition">Custom growth roadmap</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <li class="flex items-start space-x-3 hover:translate-x-1 smooth-transition group">
+                                <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0 group-hover:scale-110 smooth-transition" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <span class="text-gray-700">No-obligation consultation</span>
+                                <span class="text-gray-700 group-hover:text-gray-900 smooth-transition">No-obligation consultation</span>
                             </li>
                         </ul>
                     </div>
@@ -635,25 +806,25 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Brand -->
                 <div class="space-y-4">
-                    <div class="flex items-center space-x-2">
+                    <a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm" class="flex items-center space-x-2 hover:opacity-80 smooth-transition inline-block">
                         <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
                             <span class="text-white font-bold text-lg">OX</span>
                         </div>
                         <span class="text-xl font-bold text-white">Optimax AI</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">AI-powered go-to-market systems for revenue growth. Expert-operated, results-driven.</p>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">AI-powered go-to-market systems for revenue growth. Expert-operated, results-driven solutions for modern businesses.</p>
                     <div class="flex space-x-4 pt-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition" aria-label="Twitter">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition transform hover:scale-110" aria-label="Twitter">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8.29 20c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
                             </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition" aria-label="LinkedIn">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition transform hover:scale-110" aria-label="LinkedIn">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.637h3.554v1.36c.425-.654 1.185-1.586 2.882-1.586 2.105 0 3.684 1.375 3.684 4.331v5.532zM5.337 8.855c-1.144 0-1.915-.762-1.915-1.715 0-.955.77-1.715 1.916-1.715.99 0 1.914.76 1.914 1.715 0 .953-.925 1.715-1.914 1.715zm1.6 11.597H3.738V9.67h3.199v10.782zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
                             </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition" aria-label="Facebook">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 smooth-transition transform hover:scale-110" aria-label="Facebook">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
                             </svg>
@@ -665,11 +836,11 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Product</h4>
                     <ul class="space-y-3">
-                        <li><a href="#features" class="text-gray-400 hover:text-white smooth-transition">Features</a></li>
-                        <li><a href="#benefits" class="text-gray-400 hover:text-white smooth-transition">Benefits</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white smooth-transition">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Blog</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Features</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Testimonials</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Pricing</a></li>
+                        <li><a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm/blog.html" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Blog</a></li>
                     </ul>
                 </div>
 
@@ -677,11 +848,11 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Company</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Team</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Press</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Contact</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Press</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Contact</a></li>
                     </ul>
                 </div>
 
@@ -689,11 +860,11 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Legal</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Cookie Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Security</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition">Compliance</a></li>
+                        <li><a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm/privacy.html" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Privacy Policy</a></li>
+                        <li><a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm/terms.html" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white smooth-transition transform hover:translate-x-1 inline-block">Compliance</a></li>
                     </ul>
                 </div>
             </div>
@@ -703,10 +874,10 @@
                 <div class="flex flex-col md:flex-row items-center justify-between">
                     <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2024 Optimax AI. All rights reserved.</p>
                     <div class="flex items-center space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition">Privacy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition">Terms</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition">Cookies</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition">Security</a>
+                        <a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm/privacy.html" class="text-gray-400 hover:text-white text-sm smooth-transition transform hover:translate-x-1 inline-block">Privacy</a>
+                        <a href="https://mikeoptimax.github.io/go-to-market-systems-for-revenue-growth-2025-10-20-5tebm/terms.html" class="text-gray-400 hover:text-white text-sm smooth-transition transform hover:translate-x-1 inline-block">Terms</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition transform hover:translate-x-1 inline-block">Cookies</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm smooth-transition transform hover:translate-x-1 inline-block">Security</a>
                     </div>
                 </div>
             </div>
@@ -715,13 +886,40 @@
 
     <!-- Scripts -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
+            const mobileMenu = document.querySelector('header nav .mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+
         // Form submission handler
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Get form data
                 const formData = new FormData(this);
                 const data = {
                     name: formData.get('name'),
@@ -730,10 +928,7 @@
                     message: formData.get('message')
                 };
                 
-                // Log form data (in production, send to backend)
                 console.log('Form submitted:', data);
-                
-                // Show success message
                 alert('Thank you for your message! We\'ll be in touch shortly.');
                 this.reset();
             });
@@ -761,27 +956,15 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    entry.target.classList.add('fade-in-up');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.card-hover, .accordion-item').forEach(el => {
+        document.querySelectorAll('.card-hover, .accordion-item, .testimonial-card').forEach(el => {
             observer.observe(el);
         });
     </script>
-
-    <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+</body>
 </body>
 </html>
